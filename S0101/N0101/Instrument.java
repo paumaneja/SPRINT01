@@ -11,6 +11,10 @@ public abstract class Instrument {
         this.preu = preu;
     }
 
+    {
+        System.out.println("Bloc d'inicialització");
+    }
+
     //Getters y Setters
     public String getNom() {
         return nom;
@@ -39,5 +43,9 @@ public abstract class Instrument {
                 "nom='" + nom + '\'' +
                 ", preu=" + preu +
                 '}';
+    }
+
+    static{
+        System.out.println("Bloc estàtic");
     }
 }
