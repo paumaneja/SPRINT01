@@ -1,4 +1,4 @@
-package S0101.N0101;
+package N0101;
 
 public class Percussio extends Instrument{
 
