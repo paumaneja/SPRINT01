@@ -4,16 +4,15 @@ public class n1exercici1 {
 
     public static void main(String[] args){
 
-        System.out.println("Inicialització per instància:");
-        Vent instrument1 = new Vent("trompeta", 100f);
-        Corda instrument2 = new Corda("violí", 200f);
+
+        System.out.println("Creant instàncies:");
+        Corda instrument1 = new Corda("violí", 200f);
+        instrument1.tocar();
+        Vent instrument2 = new Vent("trompeta", 100f);
+        instrument2.tocar();
         Percussio instrument3 = new Percussio("bateria", 300f);
-
-        //A l'executar observem com es carrega primer el bloc estàtic, abans d'inicialitzar el objecte a través del constructor
-
-        System.out.println(instrument1);
-        System.out.println(instrument2);
-        System.out.println(instrument3);
+        instrument3.tocar();
+        //Com veiem al resultat la càrrega de la classe només es produeix una vegada.
 
     }
 }

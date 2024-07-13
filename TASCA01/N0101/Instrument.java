@@ -2,6 +2,8 @@ package N0101;
 
 public abstract class Instrument {
 
+
+    //Atributs
     protected String nom;
     protected double preu;
 
@@ -9,43 +11,23 @@ public abstract class Instrument {
     public Instrument (String nom, double preu){
         this.nom = nom;
         this.preu = preu;
+        System.out.println("Constructor de la classe Instrument.");
     }
 
+    //Bloc dinàmic
     {
-        System.out.println("Bloc d'inicialització");
+        System.out.println("Bloc d'inicialització de la classe Instrument. Cada cop que s'accedeix a la classe.");
     }
 
     //Getters y Setters
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public double getPreu() {
-        return preu;
-    }
-
-    public void setPreu(double preu) {
-        this.preu = preu;
-    }
 
     //Metodes
     public abstract void tocar();
 
     //toString
 
-    @Override
-    public String toString() {
-        return "Instrument{" +
-                "nom='" + nom + '\'' +
-                ", preu=" + preu +
-                '}';
-    }
-
-    static{
-        System.out.println("Bloc estàtic");
+    //Bloc estàtic
+    static {
+        System.out.println("S'ha carregat la classe Instrument. Primera i única vegada.");
     }
 }
