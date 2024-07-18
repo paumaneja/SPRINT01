@@ -42,7 +42,7 @@ public class n1exercici1 {
         Set<Month> monthSet = new HashSet<>(listMonths);
         monthSet.add(agosto);
 
-        //Recorremos con un for. Sigue habiendo 12 meses y los muestra en otro orden
+        //Recorremos con un for. Sigue habiendo 12 meses y los muestra desordenados
         for (Month month : monthSet){
             System.out.println(month.getName());
         }
@@ -54,8 +54,6 @@ public class n1exercici1 {
             System.out.println(it2.next().getName());
         }
         System.out.println("-----------");
-
-
 
     }
 }

@@ -2,7 +2,6 @@ package N0101;
 
 public class Corda extends Instrument{
 
-
     //Atributs
 
     //Constructor

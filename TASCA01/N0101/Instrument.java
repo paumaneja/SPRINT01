@@ -2,7 +2,6 @@ package N0101;
 
 public abstract class Instrument {
 
-
     //Atributs
     protected String nom;
     protected double preu;

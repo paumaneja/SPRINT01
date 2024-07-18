@@ -8,12 +8,10 @@ public class n1exercici3 {
     public static void main(String[] args) {
 
         Map<String, String> map = new HashMap<>();
-        String line;
-        String country;
-        String city;
-        String nameUser;
+        String line, country, city, nameUser;
         int points = 0;
 
+        //
         try (FileReader fr = new FileReader("/Users/paumaneja/Documents/GitHub/JAVA/SPRINT01/TASCA03/src/main/resources/countries.txt")){
             BufferedReader br = new BufferedReader(fr);
             while ((line = br.readLine()) != null){
@@ -22,7 +20,7 @@ public class n1exercici3 {
                 city = parts[1];
                 map.put(country, city);
             }
-        } catch (Exception e){
+        } catch (IOException e){
             System.out.println("No se ha encontrado el archivo.");
         }
         //System.out.println(map);

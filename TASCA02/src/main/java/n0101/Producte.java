@@ -30,7 +30,6 @@ public class Producte {
     }
 
     //toString
-
     @Override
     public String toString() {
         return "Producte{" + "nom='" + nom + '\'' + ", preu=" + preu + '}';

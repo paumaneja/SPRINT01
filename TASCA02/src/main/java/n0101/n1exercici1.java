@@ -16,7 +16,6 @@ public class n1exercici1 {
         Venda venda1 = new Venda(llistaProductes1);
         Venda venda2 = new Venda(llistaProductes2);
 
-        int[] arrayTest = new int[5];
 
         try {
             int costTotal = venda1.calcularTotal();
@@ -30,13 +29,15 @@ public class n1exercici1 {
 
         try {
             int costTotal = venda2.calcularTotal();
-            System.out.println("La venda 2 té un cost total de: " + costTotal + " euros.");
+            System.out.println("La venda2 té un cost total de: " + costTotal + " euros.");
 
         } catch (VendaBuidaException e){
             System.out.println(e.getMessage());
         }
 
         System.out.println("\nSegona part exercici (ArrayIndexOutOfBoundsException).");
+
+        int[] arrayTest = new int[5];
 
         try {
             arrayTest[10] = 1;

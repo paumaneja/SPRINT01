@@ -10,6 +10,7 @@ public class Entrada {
 
     //Constructor
 
+
     //Metodes
     public static byte llegirByte(String missatge){
 
@@ -101,7 +102,7 @@ public class Entrada {
             } catch (Exception e) {
                 System.out.println("ERROR: introdueix un char vàlid.");
             }
-            input.nextLine();
+            //input.nextLine();
         } while (!ok);
         return charLlegit;
     }
@@ -120,7 +121,7 @@ public class Entrada {
             } catch (Exception e) {
                 System.out.println("ERROR: introdueix un string vàlid.");
             }
-            input.nextLine();
+            //input.nextLine();
         } while (!ok);
         return stringLlegit;
     }
@@ -129,7 +130,7 @@ public class Entrada {
 
         boolean booleanLlegit = false;
         boolean ok = false;
-        String resposta = "";
+        String resposta;
 
         System.out.println(missatge);
 

@@ -35,6 +35,7 @@ public class Venda {
     public int calcularTotal() throws VendaBuidaException{
 
         int costTotal;
+
         if (llistaProductes.isEmpty()){
             throw new VendaBuidaException("Per fer una venda primer has d'afegir productes.");
         } else {
