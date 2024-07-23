@@ -38,11 +38,12 @@ public class Venda {
 
         if (llistaProductes.isEmpty()){
             throw new VendaBuidaException("Per fer una venda primer has d'afegir productes.");
-        } else {
-            for (int i = 0; i < llistaProductes.size(); i++){
-                this.preuTotalVenda += llistaProductes.get(i).getPreu();
-            }
         }
+
+        for (Producte llistaProducte : llistaProductes) {
+            this.preuTotalVenda += llistaProducte.getPreu();
+        }
+
         costTotal = this.preuTotalVenda;
         return costTotal;
 

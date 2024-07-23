@@ -24,7 +24,7 @@ public class Entrada {
                 byteLlegit = input.nextByte();
                 ok = true;
             } catch (InputMismatchException e) {
-                System.out.println("ERROR. Si us plau, introdueix un byte vàlid.");
+                System.out.println("ERROR. Si us plau, introdueix un byte vàlid." + e.getMessage());
             }
             input.nextLine();
         } while (!ok);
@@ -43,7 +43,7 @@ public class Entrada {
                 intLlegit = input.nextInt();
                 ok = true;
             } catch (InputMismatchException e) {
-                System.out.println("ERROR. Si us plau, introdueix un int vàlid.");
+                System.out.println("ERROR. Si us plau, introdueix un int vàlid." + e.getMessage());
             }
             input.nextLine();
         } while (!ok);
@@ -62,7 +62,7 @@ public class Entrada {
                 floatLlegit = input.nextFloat();
                 ok = true;
             } catch (InputMismatchException e) {
-                System.out.println("ERROR. Si us plau, introdueix un float vàlid.");
+                System.out.println("ERROR. Si us plau, introdueix un float vàlid." + e.getMessage());
             }
             input.nextLine();
         } while (!ok);
@@ -81,7 +81,7 @@ public class Entrada {
                 doubleLlegit = input.nextDouble();
                 ok = true;
             } catch (InputMismatchException e) {
-                System.out.println("ERROR. Si us plau, introdueix un double vàlid.");
+                System.out.println("ERROR. Si us plau, introdueix un double vàlid." + e.getMessage());
             }
             input.nextLine();
         } while (!ok);
@@ -100,7 +100,7 @@ public class Entrada {
                 charLlegit = input.next().charAt(0);
                 ok = true;
             } catch (Exception e) {
-                System.out.println("ERROR: introdueix un char vàlid.");
+                System.out.println("ERROR: introdueix un char vàlid." + e.getMessage());
             }
             //input.nextLine();
         } while (!ok);
@@ -119,7 +119,7 @@ public class Entrada {
                 stringLlegit = input.nextLine();
                 ok = true;
             } catch (Exception e) {
-                System.out.println("ERROR: introdueix un string vàlid.");
+                System.out.println("ERROR: introdueix un string vàlid." + e.getMessage());
             }
             //input.nextLine();
         } while (!ok);
@@ -148,7 +148,7 @@ public class Entrada {
                     ok = false;
                 }
             } catch (Exception e) {
-                System.out.println("ERROR: introdueix una resposta vàlida.");
+                System.out.println("ERROR: introdueix una resposta vàlida." + e.getMessage());
             }
         } while (!ok);
         return booleanLlegit;

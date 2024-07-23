@@ -1,6 +1,9 @@
 package N0103;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class n1exercici3 {
@@ -8,40 +11,24 @@ public class n1exercici3 {
     public static void main(String[] args) {
 
         Map<String, String> map = new HashMap<>();
-        String line, country, city, nameUser;
+        String country, city, nameUser;
         int points = 0;
 
-        //
-        try (FileReader fr = new FileReader("/Users/paumaneja/Documents/GitHub/JAVA/SPRINT01/TASCA03/src/main/resources/countries.txt")){
-            BufferedReader br = new BufferedReader(fr);
-            while ((line = br.readLine()) != null){
+        String actualDir = System.getProperty("user.dir");
+
+        Path pathIn = Paths.get(actualDir,"TASCA03/src/main/resources/countries.txt");
+        try {
+            List<String> lines = Files.readAllLines(pathIn);
+            for (String line : lines){
                 String[] parts = line.split(" ");
                 country = parts[0];
                 city = parts[1];
                 map.put(country, city);
             }
         } catch (IOException e){
-            System.out.println("No se ha encontrado el archivo.");
+            System.out.println("No se ha encontrado el archivo. " + e.getMessage());
         }
-        //System.out.println(map);
 
-        /*
-        File f = new File("/Users/paumaneja/Documents/GitHub/JAVA/SPRINT01/TASCA03/src/main/resources/countries.txt");
-        Scanner input;
-        try{
-            input = new Scanner(f);
-            while (input.hasNextLine()){
-                line = input.nextLine();
-                String[] parts = line.split(" ");
-                country = parts[0];
-                city = parts[1];
-                map.put(country, city);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("No se ha encontrado el archivo");
-        }
-        System.out.println(map);
-        */
 
         System.out.println("Introduce el nombre del jugador:");
         Scanner input = new Scanner(System.in);
@@ -65,18 +52,12 @@ public class n1exercici3 {
         }
 
         //Creamos un archivo y guardamos nombre y puntuación
-        try{
-            FileWriter fw = new FileWriter("/Users/paumaneja/Documents/GitHub/JAVA/SPRINT01/TASCA03/src/main/resources/classificacio.txt");
-            BufferedWriter bw = new BufferedWriter(fw);
+        Path pathOut = Paths.get(actualDir,"TASCA03/src/main/resources/classificacio.txt");
+        try (BufferedWriter bw = Files.newBufferedWriter(pathOut)){
             bw.write(nameUser + " " + points);
-            bw.flush();
-            bw.close();
         } catch (Exception e) {
-            System.out.println("No se ha podido guardar el archivo.");
+            System.out.println("No se ha podido guardar el archivo." + e.getMessage());
         }
-
-
-
-
+        input.close();
     }
 }
