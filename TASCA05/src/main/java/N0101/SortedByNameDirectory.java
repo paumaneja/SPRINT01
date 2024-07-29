@@ -25,7 +25,9 @@ public class SortedByNameDirectory {
             return;
         }
 
+
         File[] files = directory.listFiles();
+
         if (files != null){
             Arrays.sort(files, Comparator.comparing(File::getName));
             System.out.println("Directory " + path + " sorted by name.");
