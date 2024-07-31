@@ -37,7 +37,7 @@ public class n1exercici3 {
         try (BufferedWriter bw = Files.newBufferedWriter(pathout)){
             listRecursive(directory, "", bw);
         } catch (Exception e){
-            System.out.println("No se ha podido escribir en el archivo." + e.getMessage());
+            System.out.println("Failed to write to file." + e.getMessage());
         }
 
     }
@@ -47,7 +47,7 @@ public class n1exercici3 {
         File[] dir = directory.listFiles();
 
         if (dir == null){
-            System.out.println("No se pudo leer el contenido del directorio.");
+            System.out.println("Could not read the contents of the directory.");
         }
 
         Arrays.sort(dir);

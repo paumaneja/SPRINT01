@@ -35,7 +35,7 @@ public class n1exercici2 {
         File[] dir = directory.listFiles();
 
         if (dir == null){
-            System.out.println("No se pudo leer el contenido del directorio.");
+            System.out.println("Could not read the contents of the directory.");
         }
 
         Arrays.sort(dir);
