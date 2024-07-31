@@ -5,9 +5,9 @@ Crea un fitxer anomenat “readme.txt” per explicar el comando a executar a ca
 Es pot utilitzar Java exclusivament, o bé la llibreria Apache Commons IO si ho prefereixes.
 -------------------------------
 
-ENUNCIAT EXERCICI 3
+ENUNCIAT EXERCICI 4
 
-Modifica l’exercici anterior. Ara, en lloc de mostrar el resultat per la pantalla, guarda el resultat en un fitxer TXT.
+Afegeix la funcionalitat de llegir qualsevol fitxer TXT i mostra el seu contingut per consola.
 
 Per compilar i executar el programa (MAC):
 
@@ -15,7 +15,9 @@ Per compilar i executar el programa (MAC):
 2. Naveguem fins a la carpeta del projecte creat a Intellij
 3. Primer compilem:
     Executem el següent comando (javac package/nomdelaclasse.java):
-    Exemple: javac N0103/n1exercici3.java
+    Exemple: javac N0104/n1exercici4.java
     -> Si tot és correcte es crearà un arxiu anomenat igual que la classe, però amb extensió .class
-4. Executem el programa indicant la ruta que volem mostrar (java package/nomdelaclasse ruta/relativa/diretori)
-    Exemple: java N0103/n1exercici3 N0103/resources
+4. Executem el programa indicant la ruta:
+    - de la carpeta que volem mostrar
+    - de l'arxiu que volem llegir i mostrar per consola
+    Exemple: java N0104/n1exercici4 N0103/resources N0103/carpetes.txt

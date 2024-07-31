@@ -2,7 +2,7 @@ package N0103;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,16 +15,14 @@ public class n1exercici3 {
     public static void main(String[] args) {
 
         String path;
-        path = "TASCA05/src/main/java/N0103/resources";
+        //path = "TASCA05/src/main/java/N0103/resources";
 
-        /*if (args.length < 1){
+        if (args.length < 1){
             System.out.println("You must enter the path as an argument. ");
             return;
         }
 
         path = args[0];
-        */
-
 
         File directory = new File(path);
         System.out.println("The path to list is: " + directory.getPath());
@@ -35,11 +33,16 @@ public class n1exercici3 {
             return;
         }
 
-        listRecursive(directory, "");
+        Path pathout = Paths.get("N0103/carpetes.txt");
+        try (BufferedWriter bw = Files.newBufferedWriter(pathout)){
+            listRecursive(directory, "", bw);
+        } catch (Exception e){
+            System.out.println("No se ha podido escribir en el archivo." + e.getMessage());
+        }
 
     }
 
-    private static void listRecursive(File directory, String tab){
+    private static void listRecursive(File directory, String tab, BufferedWriter bw) throws IOException {
 
         File[] dir = directory.listFiles();
 
@@ -51,24 +54,18 @@ public class n1exercici3 {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-        Path pathOut = Paths.get("TASCA05/src/main/java/N0103/carpetes.txt");
-        try (BufferedWriter bw = Files.newBufferedWriter(pathOut)){
+        Path pathOut = Paths.get("N0103/carpetes.txt");
             for (File file : dir) {
                 String type = file.isDirectory() ? "D" : "F";
                 String lastModified = sdf.format(new Date(file.lastModified()));
                 String lineToAppend = tab + type + " " + file.getName() + " -> Modified: " + lastModified;
-                System.out.println(tab + type + " " + file.getName() + " -> Modified: " + lastModified);
                 bw.write(lineToAppend);
                 bw.newLine();
-                bw.flush();
 
                 if (file.isDirectory()) {
-                    listRecursive(file, tab + "    ");
+                    listRecursive(file, tab + "    ", bw);
                 }
             }
 
-        } catch (Exception e){
-            System.out.println("No se ha podido escribir en el archivo." + e.getMessage());
-        }
     }
 }

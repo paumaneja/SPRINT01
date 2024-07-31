@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="TASCA03" />
         <module name="TASCA02" />
+        <module name="TASCA06" />
         <module name="TASCA05" />
         <module name="TASCA04" />
       </profile>
