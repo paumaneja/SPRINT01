@@ -15,7 +15,6 @@ public class n1exercici3 {
     public static void main(String[] args) {
 
         String path;
-        //path = "TASCA05/src/main/java/N0103/resources";
 
         if (args.length < 1){
             System.out.println("You must enter the path as an argument. ");
