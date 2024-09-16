@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 
-public class n1exercici2 {
+public class DirectoryAndFileManager_V1 {
 
     public static void main(String[] args) {
 
@@ -23,6 +23,7 @@ public class n1exercici2 {
             for (String arg : args) {
                 if (arg != null && !arg.trim().isEmpty()) {
                     noEmptyArgs = true;
+                    break;
                 }
             }
 

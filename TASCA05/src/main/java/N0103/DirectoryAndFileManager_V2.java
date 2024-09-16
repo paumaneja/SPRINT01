@@ -1,23 +1,25 @@
-package N0104;
+package N0103;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 
-public class n1exercici4 {
+public class DirectoryAndFileManager_V2 {
 
     public static void main(String[] args) {
 
         try {
             if (args.length < 2) {
-                throw new IllegalArgumentException("You must provide a directory path and an output file path.");
+                throw new IllegalArgumentException("You must provide both a directory path and an output file path.");
             }
 
             String directoryPath = args[0];
             String outputPath = args[1];
-            String readFilePath = args.length > 2 ? args[2] : null;
 
             File directory = new File(directoryPath);
             if (!directory.exists() || !directory.isDirectory()) {
@@ -28,11 +30,6 @@ public class n1exercici4 {
                 writer.write("Directory " + directoryPath + " sorted by name:\n");
                 listDirectory(directory, 0, writer);
                 System.out.println("Directory listing saved to: " + outputPath);
-            }
-
-            if (readFilePath != null) {
-                System.out.println("\nReading from file: " + readFilePath);
-                displayFileContents(readFilePath);
             }
 
         } catch (IllegalArgumentException e) {
@@ -51,6 +48,7 @@ public class n1exercici4 {
         if (files != null) {
 
             Arrays.sort(files, Comparator.comparing(File::getName));
+
 
             for (File file : files) {
                 writeFileInfo(file, level, writer);
@@ -73,15 +71,5 @@ public class n1exercici4 {
         String type = file.isDirectory() ? "D" : "F";
 
         writer.write(indentation + file.getName() + " (" + type + ") - Last Modified: " + lastModified + "\n");
-    }
-
-
-    public static void displayFileContents(String filePath) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        }
     }
 }

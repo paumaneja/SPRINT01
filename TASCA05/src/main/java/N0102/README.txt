@@ -17,7 +17,7 @@ Per compilar i executar el programa (MAC):
 2. Naveguem fins a la carpeta del projecte creat a Intellij
 3. Primer compilem:
     Executem el següent comando (javac package/nomdelaclasse.java):
-    Exemple: javac N0102/n1exercici2.java
+    Exemple: javac N0102/DirectoryAndFileManager_V1.java
     -> Si tot és correcte es crearà un arxiu anomenat igual que la classe, però amb extensió .class
 4. Executem el programa indicant la ruta que volem mostrar (java package/nomdelaclasse ruta/relativa/diretori)
-    Exemple: java N0102/n1exercici2 N0102/resources
+    Exemple: java N0102/DirectoryAndFileManager N0102/resources
