@@ -17,5 +17,7 @@ Per compilar i executar el programa (MAC):
     Executem el següent comando (javac package/nomdelaclasse.java):
     Exemple: javac N0103/n1exercici3.java
     -> Si tot és correcte es crearà un arxiu anomenat igual que la classe, però amb extensió .class
-4. Executem el programa indicant la ruta que volem mostrar (java package/nomdelaclasse ruta/relativa/diretori)
+4. Executem el programa indicant la ruta que volem mostrar i l'arxiu de sortida:
+    java package/nomdelaclasse ruta/relativa/diretori ruta/arxiu/sortida.txt)
+
     Exemple: java N0103/n1exercici3 N0103/resources

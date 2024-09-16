@@ -1,133 +1,87 @@
 package N0104;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
-import java.util.Scanner;
 
 public class n1exercici4 {
 
     public static void main(String[] args) {
 
-        boolean out = false;
-
-        do{
-            switch(menu()){
-                case 1: showFile(args);
-                    break;
-                case 2: readFile(args);
-                    break;
-                case 0: System.out.println("Thank you. Bye Bye");
-                    out = true;
-                    break;
+        try {
+            if (args.length < 2) {
+                throw new IllegalArgumentException("You must provide a directory path and an output file path.");
             }
-        }while(!out);
-    }
 
-    public static byte menu(){
-        Scanner sc = new Scanner(System.in);
-        byte option;
-        final byte MIN = 0;
-        final byte MAX = 2;
+            String directoryPath = args[0];
+            String outputPath = args[1];
+            String readFilePath = args.length > 2 ? args[2] : null;
 
-        do{
-            System.out.println("\nMENU");
-            System.out.println("1. Write the contents of a directory to a txt.");
-            System.out.println("2. Read any txt and display its content on the console.");
-            System.out.println("0. Scape out.\n");
-            option = sc.nextByte();
-            if(option < MIN || option > MAX){
-                System.out.println("Choose a correct option");
+            File directory = new File(directoryPath);
+            if (!directory.exists() || !directory.isDirectory()) {
+                throw new IOException("The directory does not exist or is invalid: " + directoryPath);
             }
-        }while(option < MIN || option > MAX);
-        return option;
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))) {
+                writer.write("Directory " + directoryPath + " sorted by name:\n");
+                listDirectory(directory, 0, writer);
+                System.out.println("Directory listing saved to: " + outputPath);
+            }
+
+            if (readFilePath != null) {
+                System.out.println("\nReading from file: " + readFilePath);
+                displayFileContents(readFilePath);
+            }
+
+        } catch (IllegalArgumentException e) {
+            System.err.println("Argument error: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("File error: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected error: " + e.getMessage());
+        }
     }
 
 
-    private static void showFile(String[] args){
-        String path;
+    public static void listDirectory(File dir, int level, BufferedWriter writer) throws IOException {
+        File[] files = dir.listFiles();
 
-        if (args.length < 1){
-            System.out.println("You must enter the path as an argument. ");
-            return;
-        }
+        if (files != null) {
 
-        path = args[0];
+            Arrays.sort(files, Comparator.comparing(File::getName));
 
-        File directory = new File(path);
-        System.out.println("The path to list is: " + directory.getPath());
-        System.out.println("The absolut path to list is: " + directory.getAbsolutePath());
+            for (File file : files) {
+                writeFileInfo(file, level, writer);
 
-        if (!directory.exists()) {
-            System.out.println("The directory does not exist or is not valid.");
-            return;
-        }
-
-        Path pathout = Paths.get("N0104/carpetes.txt");
-        try (BufferedWriter bw = Files.newBufferedWriter(pathout)){
-            listRecursive(directory, "", bw);
-        } catch (Exception e){
-            System.out.println("Failed to write to file." + e.getMessage());
-        }
-
-    }
-
-    private static void listRecursive(File directory, String tab, BufferedWriter bw) throws IOException {
-
-        File[] dir = directory.listFiles();
-
-        if (dir == null){
-            System.out.println("Could not read the contents of the directory.");
-        }
-
-        Arrays.sort(dir);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
-        Path pathOut = Paths.get("N0104/carpetes.txt");
-        for (File file : dir) {
-            String type = file.isDirectory() ? "D" : "F";
-            String lastModified = sdf.format(new Date(file.lastModified()));
-            String lineToAppend = tab + type + " " + file.getName() + " -> Modified: " + lastModified;
-            bw.write(lineToAppend);
-            bw.newLine();
-
-            if (file.isDirectory()) {
-                listRecursive(file, tab + "    ", bw);
+                if (file.isDirectory()) {
+                    listDirectory(file, level + 1, writer);
+                }
             }
         }
-
     }
 
-    private static void readFile(String[] args){
 
-        if (args.length < 2){
-            System.out.println("You must enter the path of the file like an argument.");
-            return;
-        }
+    public static void writeFileInfo(File file, int level, BufferedWriter writer) throws IOException {
 
-        String path;
-        path = args[1];
-        File file = new File(path);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String lastModified = sdf.format(new Date(file.lastModified()));
 
-        try(BufferedReader br = Files.newBufferedReader(file.toPath())){
-            String line = null;
-            while ((line = br.readLine()) != null){
+        String indentation = " ".repeat(level * 4);
+
+        String type = file.isDirectory() ? "D" : "F";
+
+        writer.write(indentation + file.getName() + " (" + type + ") - Last Modified: " + lastModified + "\n");
+    }
+
+
+    public static void displayFileContents(String filePath) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-        } catch (IOException e){
-            System.out.println("Failed to write to file." + e.getMessage());
         }
-
-
     }
-
-
 }

@@ -1,10 +1,11 @@
-F .DS_Store -> Modified: 29/07/2024 12:29:10
-F 1212.rtf -> Modified: 23/07/2024 18:54:05
-F 2323.rtf -> Modified: 23/07/2024 18:54:05
-D recursivo -> Modified: 24/07/2024 11:26:22
-    F .DS_Store -> Modified: 29/07/2024 12:29:10
-    F SWTM-2088_Atlassian-Git-Cheatsheet.pdf -> Modified: 08/07/2024 12:58:12
-    F aaa.rtf -> Modified: 23/07/2024 18:54:05
-    D recursivo2 -> Modified: 24/07/2024 11:26:42
-        F SWTM-2088_Atlassian-Git-Cheatsheet.pdf -> Modified: 08/07/2024 12:58:12
-        F bbb (còpia).rtf -> Modified: 23/07/2024 18:54:05
+Directory N0103/resources sorted by name:
+.DS_Store (F) - Last Modified: 2024-07-29 12:29:10
+1212.rtf (F) - Last Modified: 2024-07-23 18:54:05
+2323.rtf (F) - Last Modified: 2024-07-23 18:54:05
+recursivo (D) - Last Modified: 2024-07-24 11:26:22
+    .DS_Store (F) - Last Modified: 2024-07-29 12:29:10
+    SWTM-2088_Atlassian-Git-Cheatsheet.pdf (F) - Last Modified: 2024-07-08 12:58:12
+    aaa.rtf (F) - Last Modified: 2024-07-23 18:54:05
+    recursivo2 (D) - Last Modified: 2024-07-24 11:26:42
+        SWTM-2088_Atlassian-Git-Cheatsheet.pdf (F) - Last Modified: 2024-07-08 12:58:12
+        bbb (còpia).rtf (F) - Last Modified: 2024-07-23 18:54:05

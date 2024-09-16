@@ -17,4 +17,4 @@ Per compilar i executar el programa (MAC):
     Exemple: javac N0101/SortedByNameDirectory.java
     -> Si tot és correcte es crearà un arxiu anomenat igual que la classe, però amb extensió .class
 4. Executem el programa indicant la ruta que volem mostrar (java package/nomdelaclasse ruta/relativa/diretori)
-    Exemple: java N0101/SortedbyNameDirectory N0101/resources
+    Exemple: java N0101/SortedByNameDirectory N0101/resources

@@ -18,6 +18,7 @@ Per compilar i executar el programa (MAC):
     Exemple: javac N0104/n1exercici4.java
     -> Si tot és correcte es crearà un arxiu anomenat igual que la classe, però amb extensió .class
 4. Executem el programa indicant la ruta:
-    - de la carpeta que volem mostrar
-    - de l'arxiu que volem llegir i mostrar per consola
-    Exemple: java N0104/n1exercici4 N0103/resources N0103/carpetes.txt
+    - de la carpeta que volem llegir i guardar en un arxiu
+    - de l'arxiu on guardarem la info anterior
+    - de l'arxiu que volem llegir i mostrar per consola (opcional)
+    Exemple: java N0104/n1exercici4 N0103/resources N0104/carpetes.txt N0104/README.txt

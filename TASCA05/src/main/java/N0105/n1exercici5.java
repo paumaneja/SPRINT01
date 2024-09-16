@@ -1,168 +1,119 @@
 package N0105;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
-import java.util.Scanner;
 
 public class n1exercici5 {
 
     public static void main(String[] args) {
-
-        boolean out = false;
-
-        do{
-            switch(menu()){
-                case 1: showFile(args);
-                    break;
-                case 2: readFile(args);
-                    break;
-                case 3: serAndDeser();
-                    break;
-                case 0: System.out.println("Thank you. Bye Bye");
-                    out = true;
-                    break;
+        try {
+            if (args.length < 2) {
+                throw new IllegalArgumentException("You must provide a directory path and an output file path.");
             }
-        }while(!out);
-    }
 
-    public static byte menu(){
-        Scanner sc = new Scanner(System.in);
-        byte option;
-        final byte MIN = 0;
-        final byte MAX = 3;
+            String directoryPath = args[0];
+            String outputPath = args[1];
+            String readFilePath = args.length > 2 ? args[2] : null;
+            String serializedFilePath = args.length > 3 ? args[3] : null;
 
-        do{
-            System.out.println("\nMENU");
-            System.out.println("1. Write the contents of a directory to a txt.");
-            System.out.println("2. Read any txt and display its content on the console.");
-            System.out.println("3. Serialize and deserialize an object.");
-            System.out.println("0. Scape out.\n");
-            option = sc.nextByte();
-            if(option < MIN || option > MAX){
-                System.out.println("Choose a correct option");
+            File directory = new File(directoryPath);
+            if (!directory.exists() || !directory.isDirectory()) {
+                throw new IOException("The directory does not exist or is invalid: " + directoryPath);
             }
-        }while(option < MIN || option > MAX);
-        return option;
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))) {
+                writer.write("Directory " + directoryPath + " sorted by name:\n");
+                listDirectory(directory, 0, writer);
+                System.out.println("Directory listing saved to: " + outputPath);
+            }
+
+            if (readFilePath != null) {
+                System.out.println("\nReading from file: " + readFilePath);
+                displayFileContents(readFilePath);
+            }
+
+            if (serializedFilePath != null) {
+                serializeFileInfo(directory, serializedFilePath);
+                System.out.println("\nSerialized file info saved to: " + serializedFilePath);
+                deserializeFileInfo(serializedFilePath);
+            }
+
+        } catch (IllegalArgumentException e) {
+            System.err.println("Argument error: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("File error: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected error: " + e.getMessage());
+        }
     }
 
+    public static void listDirectory(File dir, int level, BufferedWriter writer) throws IOException {
+        File[] files = dir.listFiles();
 
-    private static void showFile(String[] args){
-        String path;
+        if (files != null) {
+            Arrays.sort(files, Comparator.comparing(File::getName));
 
-        if (args.length < 1){
-            System.out.println("You must enter the path as an argument. ");
-            return;
-        }
+            for (File file : files) {
+                writeFileInfo(file, level, writer);
 
-        path = args[0];
-
-        File directory = new File(path);
-        System.out.println("The path to list is: " + directory.getPath());
-        System.out.println("The absolut path to list is: " + directory.getAbsolutePath());
-
-        if (!directory.exists()) {
-            System.out.println("The directory does not exist or is not valid.");
-            return;
-        }
-
-        Path pathout = Paths.get("N0104/carpetes.txt");
-        try (BufferedWriter bw = Files.newBufferedWriter(pathout)){
-            listRecursive(directory, "", bw);
-        } catch (Exception e){
-            System.out.println("Failed to write to file." + e.getMessage());
-        }
-
-    }
-
-    private static void listRecursive(File directory, String tab, BufferedWriter bw) throws IOException {
-
-        File[] dir = directory.listFiles();
-
-        if (dir == null){
-            System.out.println("Could not read the contents of the directory.");
-        }
-
-        Arrays.sort(dir);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
-        Path pathOut = Paths.get("N0104/carpetes.txt");
-        for (File file : dir) {
-            String type = file.isDirectory() ? "D" : "F";
-            String lastModified = sdf.format(new Date(file.lastModified()));
-            String lineToAppend = tab + type + " " + file.getName() + " -> Modified: " + lastModified;
-            bw.write(lineToAppend);
-            bw.newLine();
-
-            if (file.isDirectory()) {
-                listRecursive(file, tab + "    ", bw);
+                if (file.isDirectory()) {
+                    listDirectory(file, level + 1, writer);
+                }
             }
         }
-
     }
 
-    private static void readFile(String[] args){
+    public static void writeFileInfo(File file, int level, BufferedWriter writer) throws IOException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String lastModified = sdf.format(new Date(file.lastModified()));
 
-        if (args.length < 2){
-            System.out.println("You must enter the path of the file like an argument.");
-            return;
-        }
+        String indentation = " ".repeat(level * 4);
+        String type = file.isDirectory() ? "D" : "F";
 
-        String path;
-        path = args[1];
-        File file = new File(path);
+        writer.write(indentation + file.getName() + " (" + type + ") - Last Modified: " + lastModified + "\n");
+    }
 
-        try(BufferedReader br = Files.newBufferedReader(file.toPath())){
+    public static void displayFileContents(String filePath) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = br.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-        } catch (IOException e){
-            System.out.println("Failed to write to file." + e.getMessage());
         }
     }
 
-    private static void serAndDeser(){
-
-        SerializableClass obj = new SerializableClass("Hola", 10);
-
-        try {
-            FileOutputStream file = new FileOutputStream("file.ser");
-            ObjectOutputStream out = new ObjectOutputStream(file);
-
-            out.writeObject(obj);
-
-            out.close();
-            file.close();
-
-            System.out.println("Object has been serialized.");
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        SerializableClass obj1 = null;
-
-        try {
-            FileInputStream file = new FileInputStream("file.ser");
-            ObjectInputStream in = new ObjectInputStream(file);
-
-            obj1 = (SerializableClass) in.readObject();
-
-            in.close();
-            file.close();
-
-            System.out.println("Object has been deserialized.");
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
+    public static void serializeFileInfo(File dir, String filePath) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            serializeDirectory(dir, oos);
         }
     }
 
+    private static void serializeDirectory(File dir, ObjectOutputStream oos) throws IOException {
+        File[] files = dir.listFiles();
 
+        if (files != null) {
+            for (File file : files) {
+                FileInfo fileInfo = new FileInfo(file.getName(), file.isDirectory(), new Date(file.lastModified()));
+                oos.writeObject(fileInfo);
+
+                if (file.isDirectory()) {
+                    serializeDirectory(file, oos);
+                }
+            }
+        }
+    }
+
+    public static void deserializeFileInfo(String filePath) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
+            Object obj;
+            while ((obj = ois.readObject()) != null) {
+                if (obj instanceof FileInfo) {
+                    System.out.println(obj);
+                }
+            }
+        }
+    }
 }
