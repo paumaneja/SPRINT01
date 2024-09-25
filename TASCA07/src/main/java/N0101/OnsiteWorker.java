@@ -2,7 +2,7 @@ package N0101;
 
 public class OnsiteWorker extends Worker{
 
-    protected static int fuel;
+    protected static int fuel = 100;
 
     public OnsiteWorker(String name, String lastName, double hourPrice){
         super(name, lastName, hourPrice);

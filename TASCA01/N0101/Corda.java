@@ -13,6 +13,7 @@ public class Corda extends Instrument{
     //Getters y Setters
 
     //Metodes
+    @Override
     public void tocar(){
         System.out.println("Està sonant uns instrument de corda.");
     }
