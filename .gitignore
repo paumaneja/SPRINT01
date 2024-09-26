@@ -1,3 +1,6 @@
+# Excepción para incluir el archivo .env
+!.gitignore
+
 # Ignorar archivos ocultos y específicos de macOS
 .DS_Store
 .AppleDouble
