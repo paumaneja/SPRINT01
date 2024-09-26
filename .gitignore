@@ -1,3 +1,14 @@
+# Ignorar archivos ocultos y específicos de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Ignorar archivos de iconos de macOS
+Icon\r
+
+# Ignorar carpetas de metadatos de macOS
+__MACOSX
+
 # Compiled class file
 *.class
 

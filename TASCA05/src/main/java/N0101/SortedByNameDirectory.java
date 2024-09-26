@@ -12,20 +12,8 @@ public class SortedByNameDirectory {
         try {
             String path;
 
-            if (args.length == 0) {
-                throw new IllegalArgumentException("No arguments passed. You must provide a directory path.");
-            }
-
-            boolean noEmptyArgs = false;
-
-            for (String arg : args) {
-                if (arg != null && !arg.trim().isEmpty()) {
-                    noEmptyArgs = true;
-                }
-            }
-
-            if (!noEmptyArgs) {
-                throw new IllegalArgumentException("All arguments are empty. You must provide a valid argument.");
+            if (args.length == 0 || args[0].trim().isEmpty()) {
+                throw new IllegalArgumentException("You must provide a valid argument.");
             }
 
             path = args[0];
