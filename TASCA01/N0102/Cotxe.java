@@ -8,7 +8,7 @@ public class Cotxe {
     protected final int POTENCIA;
 
     //Constructor
-    public Cotxe(String model, int POTENCIA){
+    public Cotxe(String model, int POTENCIA) {
         Cotxe.model = model;
         this.POTENCIA = POTENCIA;
     }
@@ -16,12 +16,12 @@ public class Cotxe {
     //Getter y Setters
 
     //Metode estàtic
-    public static void frenar(){
+    public static void frenar() {
         System.out.println("El vehicle està frenant.");
     }
 
     //Metode no estàtic
-    public void accelerar(){
+    public void accelerar() {
         System.out.println("El vehicle està accelerant.");
     }
 

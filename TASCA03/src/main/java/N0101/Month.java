@@ -5,7 +5,7 @@ public class Month {
     private String name;
 
     //Constructor
-    public Month(String name){
+    public Month(String name) {
         this.name = name;
     }
 

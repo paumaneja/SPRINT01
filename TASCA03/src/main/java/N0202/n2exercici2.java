@@ -25,14 +25,14 @@ public class n2exercici2 {
         hashSetRestaurant.add(r7);
 
         System.out.println("Exercici1:\n");
-        for (Restaurant r : hashSetRestaurant){
+        for (Restaurant r : hashSetRestaurant) {
             System.out.println(r);
         }
 
         TreeSet<Restaurant> sortedRestaurant = new TreeSet<>(hashSetRestaurant);
 
         System.out.println("Exercici2:\n");
-        for (Restaurant r : sortedRestaurant){
+        for (Restaurant r : sortedRestaurant) {
             System.out.println(r);
         }
 

@@ -1,11 +1,11 @@
 package N0101;
 
-public class Percussio extends Instrument{
+public class Percussio extends Instrument {
 
     //Atributs
 
     //Constructor
-    public Percussio(String nom, double preu){
+    public Percussio(String nom, double preu) {
         super(nom, preu);
         System.out.println("Constructor de la classe Percussió.");
     }
@@ -14,7 +14,7 @@ public class Percussio extends Instrument{
 
     //Metodes
     @Override
-    public void tocar(){
+    public void tocar() {
         System.out.println("Està sonant uns instrument de percussió.");
     }
 

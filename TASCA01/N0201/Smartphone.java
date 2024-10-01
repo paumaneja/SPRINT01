@@ -5,7 +5,7 @@ public class Smartphone extends Telefon implements Camera, Rellotge {
     //Atributs
 
     //Constructor
-    public Smartphone(String marca, String model){
+    public Smartphone(String marca, String model) {
         super(marca, model);
     }
 
@@ -13,12 +13,12 @@ public class Smartphone extends Telefon implements Camera, Rellotge {
 
     //Metodes
     @Override
-    public void fotografiar(){
+    public void fotografiar() {
         System.out.println("S'està fent una foto.");
     }
 
     @Override
-    public void alarma(){
+    public void alarma() {
         System.out.println("Està sonant l'alarma.");
     }
 

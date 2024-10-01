@@ -5,7 +5,7 @@ public class Worker {
     protected String lastName;
     protected double hourPrice;
 
-    public Worker(String name, String lastName, double hourPrice){
+    public Worker(String name, String lastName, double hourPrice) {
         this.name = name;
         this.lastName = lastName;
         this.hourPrice = hourPrice;
@@ -36,7 +36,7 @@ public class Worker {
     }
 
 
-    public double salaryCalc(int workedHours){
+    public double salaryCalc(int workedHours) {
         return workedHours * this.hourPrice;
     }
 

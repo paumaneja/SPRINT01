@@ -7,7 +7,7 @@ public class Producte {
     private int preu;
 
     //Constructor
-    public Producte(String nom, int preu){
+    public Producte(String nom, int preu) {
         this.nom = nom;
         this.preu = preu;
     }

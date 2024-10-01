@@ -9,7 +9,7 @@ public class Venda {
     private int preuTotalVenda;
 
     //Constructor
-    public Venda(ArrayList<Producte> llistaProductes){
+    public Venda(ArrayList<Producte> llistaProductes) {
         this.llistaProductes = llistaProductes;
         this.preuTotalVenda = 0;
     }
@@ -32,11 +32,11 @@ public class Venda {
     }
 
     //Metodes
-    public int calcularTotal() throws VendaBuidaException{
+    public int calcularTotal() throws VendaBuidaException {
 
         int costTotal;
 
-        if (llistaProductes.isEmpty()){
+        if (llistaProductes.isEmpty()) {
             throw new VendaBuidaException("Per fer una venda primer has d'afegir productes.");
         }
 

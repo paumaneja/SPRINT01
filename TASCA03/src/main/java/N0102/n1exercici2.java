@@ -20,7 +20,7 @@ public class n1exercici2 {
 
         ListIterator<Integer> listIterator = integerList1.listIterator(integerList1.size());
 
-        while (listIterator.hasPrevious()){
+        while (listIterator.hasPrevious()) {
             integerList2.add(listIterator.previous());
         }
 

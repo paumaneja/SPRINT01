@@ -6,7 +6,7 @@ public class NoGenericMethods {
     private Object obj2;
     private Object obj3;
 
-    public NoGenericMethods(Object obj1, Object obj2, Object obj3){
+    public NoGenericMethods(Object obj1, Object obj2, Object obj3) {
         this.obj1 = obj1;
         this.obj2 = obj2;
         this.obj3 = obj3;

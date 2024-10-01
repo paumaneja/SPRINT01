@@ -8,7 +8,7 @@ public class ArrayIndexOutOfBoundsExceptionDemoTest {
 
     @DisplayName("Verificamos que la clase lanza la excepción esperada.")
     @Test
-    public void checkArrayIndexOutOfBoundsExceptionDemo(){
+    public void checkArrayIndexOutOfBoundsExceptionDemo() {
         ArrayIndexOutOfBoundsExceptionDemo demo = new ArrayIndexOutOfBoundsExceptionDemo();
 
         Assertions.assertThrows(ArrayIndexOutOfBoundsException.class,

@@ -21,10 +21,10 @@ public class n1exercici1 {
 
     }
 
-    public static List<String> filterStringsWithO(List<String> strings){
+    public static List<String> filterStringsWithO(List<String> strings) {
         return strings.stream()
-                    .filter(string -> string.contains("o"))
-                    .collect(Collectors.toList());
-        }
+                .filter(string -> string.contains("o"))
+                .collect(Collectors.toList());
+    }
 
 }

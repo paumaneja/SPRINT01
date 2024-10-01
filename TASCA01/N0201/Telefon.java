@@ -7,7 +7,7 @@ public class Telefon {
     protected String model;
 
     //Constructor
-    public Telefon(String marca, String model){
+    public Telefon(String marca, String model) {
         this.marca = marca;
         this.model = model;
     }
@@ -15,7 +15,7 @@ public class Telefon {
     //Getters y Setters
 
     //Metodes
-    public void trucar(String numero){
+    public void trucar(String numero) {
         System.out.println("S'està trucant al número: " + numero);
     }
 }

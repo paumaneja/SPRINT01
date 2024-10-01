@@ -1,11 +1,11 @@
 package N0101;
 
-public class Corda extends Instrument{
+public class Corda extends Instrument {
 
     //Atributs
 
     //Constructor
-    public Corda(String nom, double preu){
+    public Corda(String nom, double preu) {
         super(nom, preu);
         System.out.println("Constructor de la classe Corda");
     }
@@ -14,7 +14,7 @@ public class Corda extends Instrument{
 
     //Metodes
     @Override
-    public void tocar(){
+    public void tocar() {
         System.out.println("Està sonant uns instrument de corda.");
     }
 

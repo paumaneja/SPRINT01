@@ -5,7 +5,7 @@ public class Vent extends Instrument {
     //Atributs
 
     //Constructor
-    public Vent(String nom, double preu){
+    public Vent(String nom, double preu) {
         super(nom, preu);
         System.out.println("Constructor de la classe Vent.");
     }
@@ -13,7 +13,7 @@ public class Vent extends Instrument {
     //Getters y Setters
 
     //Metodes
-    public void tocar(){
+    public void tocar() {
         System.out.println("Està sonant un instrument de vent.");
     }
 

@@ -21,7 +21,7 @@ public class n1exercici1 {
             int costTotal = venda1.calcularTotal();
             System.out.println("La venda1 té un cost total de: " + costTotal + " euros.");
 
-        } catch (VendaBuidaException e){
+        } catch (VendaBuidaException e) {
             System.out.println(e.getMessage());
         }
 
@@ -31,7 +31,7 @@ public class n1exercici1 {
             int costTotal = venda2.calcularTotal();
             System.out.println("La venda2 té un cost total de: " + costTotal + " euros.");
 
-        } catch (VendaBuidaException e){
+        } catch (VendaBuidaException e) {
             System.out.println(e.getMessage());
         }
 

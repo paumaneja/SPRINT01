@@ -8,7 +8,7 @@ public class Restaurant {
     private int points;
 
     //Constructor
-    public Restaurant(String name, int points){
+    public Restaurant(String name, int points) {
         this.name = name;
         this.points = points;
     }
@@ -38,10 +38,10 @@ public class Restaurant {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj){
+        if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()){
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 

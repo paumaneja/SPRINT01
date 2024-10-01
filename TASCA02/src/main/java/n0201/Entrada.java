@@ -12,7 +12,7 @@ public class Entrada {
 
 
     //Metodes
-    public static byte llegirByte(String missatge){
+    public static byte llegirByte(String missatge) {
 
         byte byteLlegit = 0;
         boolean ok = false;
@@ -31,7 +31,7 @@ public class Entrada {
         return byteLlegit;
     }
 
-    public static int llegirInt(String missatge){
+    public static int llegirInt(String missatge) {
 
         int intLlegit = 0;
         boolean ok = false;
@@ -50,7 +50,7 @@ public class Entrada {
         return intLlegit;
     }
 
-    public static float llegirFloat(String missatge){
+    public static float llegirFloat(String missatge) {
 
         float floatLlegit = 0.0f;
         boolean ok = false;
@@ -69,7 +69,7 @@ public class Entrada {
         return floatLlegit;
     }
 
-    public static double llegirDouble(String missatge){
+    public static double llegirDouble(String missatge) {
 
         double doubleLlegit = 0.0f;
         boolean ok = false;
@@ -88,7 +88,7 @@ public class Entrada {
         return doubleLlegit;
     }
 
-    public static char llegirChar(String missatge){
+    public static char llegirChar(String missatge) {
 
         char charLlegit = ' ';
         boolean ok = false;
@@ -107,7 +107,7 @@ public class Entrada {
         return charLlegit;
     }
 
-    public static String llegirString(String missatge){
+    public static String llegirString(String missatge) {
 
         String stringLlegit = "";
         boolean ok = false;
@@ -126,7 +126,7 @@ public class Entrada {
         return stringLlegit;
     }
 
-    public static boolean llegirSiNo(String missatge){
+    public static boolean llegirSiNo(String missatge) {
 
         boolean booleanLlegit = false;
         boolean ok = false;

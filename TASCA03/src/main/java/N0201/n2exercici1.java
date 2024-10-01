@@ -21,7 +21,7 @@ public class n2exercici1 {
         hashSetRestaurant.add(r5);
         hashSetRestaurant.add(new Restaurant("Nomo", 9));
 
-        for (Restaurant r : hashSetRestaurant){
+        for (Restaurant r : hashSetRestaurant) {
             System.out.println(r);
         }
 

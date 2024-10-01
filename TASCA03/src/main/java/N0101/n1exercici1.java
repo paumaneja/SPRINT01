@@ -24,7 +24,7 @@ public class n1exercici1 {
         listMonths.add(new Month("Diciembre"));
 
         //Recorremos el arraylist, añadimos mes, volvemos a recorrer el arraylist
-        for (Month month : listMonths){
+        for (Month month : listMonths) {
             System.out.println(month.getName());
         }
 
@@ -33,7 +33,7 @@ public class n1exercici1 {
         listMonths.add(7, agosto);
 
         Iterator<Month> it = listMonths.iterator();
-        while (it.hasNext()){
+        while (it.hasNext()) {
             System.out.println(it.next().getName());
         }
         System.out.println("-----------");
@@ -43,14 +43,14 @@ public class n1exercici1 {
         monthSet.add(agosto);
 
         //Recorremos con un for. Sigue habiendo 12 meses y los muestra desordenados
-        for (Month month : monthSet){
+        for (Month month : monthSet) {
             System.out.println(month.getName());
         }
         System.out.println("-----------");
 
         //Recorremos con un Iterador
         Iterator<Month> it2 = monthSet.iterator();
-        while (it2.hasNext()){
+        while (it2.hasNext()) {
             System.out.println(it2.next().getName());
         }
         System.out.println("-----------");

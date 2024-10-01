@@ -6,11 +6,11 @@ public class Months {
 
     private static ArrayList<String> listMonths;
 
-    public Months(){
+    public Months() {
         listMonths = new ArrayList<>();
     }
 
-    public ArrayList<String> addMonths(){
+    public ArrayList<String> addMonths() {
         listMonths.add("Enero");
         listMonths.add("Febrero");
         listMonths.add("Marzo");

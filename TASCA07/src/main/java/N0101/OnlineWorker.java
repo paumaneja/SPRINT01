@@ -1,10 +1,10 @@
 package N0101;
 
-public class OnlineWorker extends Worker{
+public class OnlineWorker extends Worker {
 
     protected static final double INTERNET = 50.2;
 
-    public OnlineWorker(String name, String lastName, double hourPrice){
+    public OnlineWorker(String name, String lastName, double hourPrice) {
         super(name, lastName, hourPrice);
     }
 

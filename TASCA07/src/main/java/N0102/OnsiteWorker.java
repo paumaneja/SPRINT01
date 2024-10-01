@@ -5,7 +5,7 @@ public class OnsiteWorker extends Worker {
 
     protected static int fuel;
 
-    public OnsiteWorker(String name, String lastName, double hourPrice){
+    public OnsiteWorker(String name, String lastName, double hourPrice) {
         super(name, lastName, hourPrice);
     }
 
@@ -15,7 +15,7 @@ public class OnsiteWorker extends Worker {
     }
 
     @Deprecated
-    public void deprecatedMethodOnsite(){
+    public void deprecatedMethodOnsite() {
         System.out.println("This is an obsolet method of the OnsiteWorker class.");
     }
 

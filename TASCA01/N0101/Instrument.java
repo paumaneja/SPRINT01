@@ -7,7 +7,7 @@ public abstract class Instrument {
     protected double preu;
 
     //Constructor
-    public Instrument (String nom, double preu){
+    public Instrument(String nom, double preu) {
         this.nom = nom;
         this.preu = preu;
         System.out.println("Constructor de la classe Instrument.");

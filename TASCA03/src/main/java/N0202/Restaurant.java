@@ -2,13 +2,13 @@ package N0202;
 
 import java.util.*;
 
-public class Restaurant implements Comparable<Restaurant>{
+public class Restaurant implements Comparable<Restaurant> {
 
     private String name;
     private int points;
 
     //Constructor
-    public Restaurant(String name, int points){
+    public Restaurant(String name, int points) {
         this.name = name;
         this.points = points;
     }
@@ -38,10 +38,10 @@ public class Restaurant implements Comparable<Restaurant>{
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj){
+        if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()){
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 
@@ -51,13 +51,13 @@ public class Restaurant implements Comparable<Restaurant>{
 
     @Override
     public int compareTo(Restaurant restaurant) {
-        if (!this.name.equals(restaurant.name)){
+        if (!this.name.equals(restaurant.name)) {
             return this.name.compareTo(restaurant.name);
         } else {
             return Integer.compare(this.points, restaurant.points);
         }
     }
-    
+
     //toString
     @Override
     public String toString() {

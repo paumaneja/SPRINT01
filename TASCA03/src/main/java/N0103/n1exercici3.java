@@ -16,16 +16,16 @@ public class n1exercici3 {
 
         String actualDir = System.getProperty("user.dir");
 
-        Path pathIn = Paths.get(actualDir,"TASCA03/src/main/resources/countries.txt");
+        Path pathIn = Paths.get(actualDir, "TASCA03/src/main/resources/countries.txt");
         try {
             List<String> lines = Files.readAllLines(pathIn);
-            for (String line : lines){
+            for (String line : lines) {
                 String[] parts = line.split(" ");
                 country = parts[0];
                 city = parts[1];
                 map.put(country, city);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("No se ha encontrado el archivo. " + e.getMessage());
         }
 
@@ -35,15 +35,15 @@ public class n1exercici3 {
         nameUser = input.nextLine();
 
         //Mostramos un pais de forma aleatoria
-        for (int i = 0; i <10; i++){
+        for (int i = 0; i < 10; i++) {
             int sizeMap = map.size();
-            int numRandom = (int) (Math.random()*sizeMap);
+            int numRandom = (int) (Math.random() * sizeMap);
             List<String> mapValues = new ArrayList<>(map.values());
             List<String> mapKeys = new ArrayList<>(map.keySet());
             System.out.println("Escribe la capital de " + mapKeys.get(numRandom) + " :");
             String cityUser;
             cityUser = input.nextLine();
-            if (cityUser.equalsIgnoreCase(mapValues.get(numRandom))){
+            if (cityUser.equalsIgnoreCase(mapValues.get(numRandom))) {
                 System.out.println("Correcte. Has sumat un punt.");
                 points++;
             } else {
@@ -52,8 +52,8 @@ public class n1exercici3 {
         }
 
         //Creamos un archivo y guardamos nombre y puntuación
-        Path pathOut = Paths.get(actualDir,"TASCA03/src/main/resources/classificacio.txt");
-        try (BufferedWriter bw = Files.newBufferedWriter(pathOut)){
+        Path pathOut = Paths.get(actualDir, "TASCA03/src/main/resources/classificacio.txt");
+        try (BufferedWriter bw = Files.newBufferedWriter(pathOut)) {
             bw.write(nameUser + " " + points);
         } catch (Exception e) {
             System.out.println("No se ha podido guardar el archivo." + e.getMessage());

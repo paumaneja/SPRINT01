@@ -22,7 +22,7 @@ public class n1exercici2 {
 
     }
 
-    public static List<String> filterStringsWithO(List<String> strings){
+    public static List<String> filterStringsWithO(List<String> strings) {
         return strings.stream()
                 .filter(string -> string.contains("o") && string.length() > 5)
                 .collect(Collectors.toList());
