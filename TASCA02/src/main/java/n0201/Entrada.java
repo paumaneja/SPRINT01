@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Entrada {
 
     //Atributs
-    private static Scanner input = new Scanner(System.in);
+    private static Scanner input;
 
     //Constructor
 
